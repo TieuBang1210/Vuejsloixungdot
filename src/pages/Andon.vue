@@ -76,34 +76,25 @@ export default {
     };
   },
   methods: {
-    clickAdd(issue){
-      this.issues.push(issue)
-      this.issues = response.data;
+    clickAdd(newIssue){
 
-
-      // // const postissue = async () => {
-      // //   try{
-      //   // const response= await axios 
-      // //   }
-      // // }
-      //  axios
-     
-      // .post(`http://115.78.94.36:10000/ANDON_ISSUES/post?str_json=${JSON.stringify(this.newIssue)}`)
-      // .then(response => {
-      //   // Xử lý phản hồi từ máy chủ sau khi thêm mới thành công
-      //   console.log('Phần tử đã được thêm mới thành công:', response.data);
-      //   // Cập nhật danh sách hiển thị bằng cách thêm phần tử mới vào mảng issues
-      //   this.issues.push(response.data)
-      //   // Đặt lại giá trị cho newIssue để chuẩn bị cho lần thêm mới tiếp theo
-      //   // // this.newIssue = {
-      //   // //   ANDON_ISSUE_ID: "",
-      //   // //   ANDON_ISSUE_TYPE_ID: "",
-      //   // //   ANDON_ISSUE_NAME: "",
-      //   // };
-      // })
-      // .catch(error => {
-      //   console.error('Lỗi khi thêm mới phần tử:', error);
-      // });
+      axios
+      .post(`http://115.78.94.36:10000/ANDON_ISSUES/post?str_json=${JSON.stringify(this.newIssue)}`)
+      .then(response => {
+        // Xử lý phản hồi từ máy chủ sau khi thêm mới thành công
+        console.log('Phần tử đã được thêm mới thành công:', response.data);
+        // Cập nhật danh sách hiển thị bằng cách thêm phần tử mới vào mảng issues
+        this.issues.push(response.data)
+        // Đặt lại giá trị cho newIssue để chuẩn bị cho lần thêm mới tiếp theo
+        // // this.newIssue = {
+        // //   ANDON_ISSUE_ID: "",
+        // //   ANDON_ISSUE_TYPE_ID: "",
+        // //   ANDON_ISSUE_NAME: "",
+        // };
+      })
+      .catch(error => {
+        console.error('Lỗi khi thêm mới phần tử:', error);
+      });
       
     },
 
